@@ -1,4 +1,3 @@
-// Data awal inventaris laboratorium
 const barangLab = [
     "Keyboard",
     "Mouse",
@@ -6,7 +5,6 @@ const barangLab = [
     "Kabel HDMI"
 ];
 
-// Function untuk menampilkan daftar barang
 function tampilkanBarang(daftarBarang) {
     console.log("=== DAFTAR INVENTARIS LABORATORIUM ===");
 
@@ -21,28 +19,70 @@ function tampilkanBarang(daftarBarang) {
     console.log(`Jumlah barang: ${daftarBarang.length}`);
 }
 
-// Memanggil function
-tampilkanBarang(barangLab);
-
 function tambahBarang(daftarBarang, namaBarang) {
-    // Memeriksa apakah nama barang kosong
     if (namaBarang.trim() === "") {
         return false;
     }
 
-    // Memeriksa apakah barang sudah tersedia
     if (daftarBarang.includes(namaBarang)) {
         return false;
     }
 
-    // Menambahkan barang baru
     daftarBarang.push(namaBarang);
 
     return true;
 }
+// Menampilkan daftar barang awal
+console.log("=== DAFTAR BARANG AWAL ===");
+tampilkanBarang(barangLab);
+
+// Menambahkan Webcam
+console.log("\n=== MENAMBAHKAN WEBCAM ===");
+
+if (tambahBarang(barangLab, "Webcam")) {
+    console.log("Webcam berhasil ditambahkan.");
+} else {
+    console.log("Penambahan barang ditolak.");
+}
+
+// Mencari Monitor
+console.log("\n=== MENCARI MONITOR ===");
+
+const posisiMonitor = cariBarang(barangLab, "Monitor");
+
+if (posisiMonitor !== -1) {
+    console.log(`Monitor ditemukan pada indeks ${posisiMonitor}.`);
+} else {
+    console.log("Monitor tidak ditemukan.");
+}
+
+// Menghapus Mouse
+console.log("\n=== MENGHAPUS MOUSE ===");
+
+if (hapusBarang(barangLab, "Mouse")) {
+    console.log("Mouse berhasil dihapus.");
+} else {
+    console.log("Mouse tidak ditemukan.");
+}
+
+// Menampilkan daftar setelah perubahan
+console.log("\n=== DAFTAR SETELAH PERUBAHAN ===");
+tampilkanBarang(barangLab);
 
 function cariBarang(daftarBarang, namaBarang) {
     const indeks = daftarBarang.indexOf(namaBarang);
 
     return indeks;
+}
+
+function hapusBarang(daftarBarang, namaBarang) {
+    const indeks = cariBarang(daftarBarang, namaBarang);
+
+    if (indeks === -1) {
+        return false;
+    }
+
+    daftarBarang.splice(indeks, 1);
+
+    return true;
 }

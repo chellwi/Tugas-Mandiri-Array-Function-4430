@@ -86,3 +86,28 @@ function hapusBarang(daftarBarang, namaBarang) {
 
     return true;
 }
+
+// === PENGUJIAN TAMBAHAN ===
+console.log("\n=== PENGUJIAN TAMBAHAN ===");
+
+// 1. Menguji penambahan Printer
+const ujiPrinter = ["Keyboard", "Mouse"];
+console.log("Tambah Printer:", tambahBarang(ujiPrinter, "Printer"));
+tampilkanBarang(ujiPrinter);
+
+// 2. Menguji penambahan barang duplikat
+console.log("Tambah Monitor duplikat:", tambahBarang(ujiPrinter, "Keyboard"));
+
+// 3. Menguji nama barang kosong
+console.log("Tambah nama kosong:", tambahBarang(ujiPrinter, ""));
+
+// 4. Menguji pencarian barang yang tidak ada
+console.log("Cari Scanner:", cariBarang(ujiPrinter, "Scanner"));
+
+// 5. Menguji penghapusan barang yang tidak ada
+console.log("Hapus Scanner:", hapusBarang(ujiPrinter, "Scanner"));
+tampilkanBarang(ujiPrinter);
+
+// 6. Menguji daftar kosong
+console.log("\n=== MENGUJI DAFTAR KOSONG ===");
+tampilkanBarang([]);

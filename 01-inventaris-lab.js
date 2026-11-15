@@ -23,3 +23,20 @@ function tampilkanBarang(daftarBarang) {
 
 // Memanggil function
 tampilkanBarang(barangLab);
+
+function tambahBarang(daftarBarang, namaBarang) {
+    // Memeriksa apakah nama barang kosong
+    if (namaBarang.trim() === "") {
+        return false;
+    }
+
+    // Memeriksa apakah barang sudah tersedia
+    if (daftarBarang.includes(namaBarang)) {
+        return false;
+    }
+
+    // Menambahkan barang baru
+    daftarBarang.push(namaBarang);
+
+    return true;
+}

@@ -40,3 +40,9 @@ function tambahBarang(daftarBarang, namaBarang) {
 
     return true;
 }
+
+function cariBarang(daftarBarang, namaBarang) {
+    const indeks = daftarBarang.indexOf(namaBarang);
+
+    return indeks;
+}
